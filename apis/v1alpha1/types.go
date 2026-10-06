@@ -25,3 +25,164 @@ var (
 	_ = &metav1.Time{}
 	_ = ackv1alpha1.AWSAccountID("")
 )
+
+// An action defines the tasks that the extension performs during the AppConfig
+// workflow. Each action includes an action point, as shown in the following
+// list:
+//
+//   - PRE_CREATE_HOSTED_CONFIGURATION_VERSION
+//
+//   - PRE_START_DEPLOYMENT
+//
+//   - AT_DEPLOYMENT_TICK
+//
+//   - ON_DEPLOYMENT_START
+//
+//   - ON_DEPLOYMENT_STEP
+//
+//   - ON_DEPLOYMENT_BAKING
+//
+//   - ON_DEPLOYMENT_COMPLETE
+//
+//   - ON_DEPLOYMENT_ROLLED_BACK
+//
+// Each action also includes a name, a URI to an Lambda function, and an Amazon
+// Resource Name (ARN) for an Identity and Access Management assume role. You
+// specify the name, URI, and ARN for each action point defined in the extension.
+type Action struct {
+	Description *string `json:"description,omitempty"`
+	Name        *string `json:"name,omitempty"`
+}
+
+// An extension that was invoked as part of a deployment event.
+type ActionInvocation struct {
+	ActionName   *string `json:"actionName,omitempty"`
+	InvocationID *string `json:"invocationID,omitempty"`
+}
+
+type Application_SDK struct {
+	Description *string `json:"description,omitempty"`
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+}
+
+// An extension that was invoked during a deployment.
+type AppliedExtension struct {
+	ExtensionAssociationID *string `json:"extensionAssociationID,omitempty"`
+	ExtensionID            *string `json:"extensionID,omitempty"`
+}
+
+// A summary of a configuration profile.
+type ConfigurationProfileSummary struct {
+	ApplicationID *string `json:"applicationID,omitempty"`
+	ID            *string `json:"id,omitempty"`
+}
+
+// An object that describes a deployment event.
+type DeploymentEvent struct {
+	Description *string `json:"description,omitempty"`
+}
+
+// The deployment parameters for an experiment run, including dynamic extension
+// parameters and tags.
+type DeploymentParameters struct {
+	Tags map[string]*string `json:"tags,omitempty"`
+}
+
+type DeploymentStrategy struct {
+	Description *string `json:"description,omitempty"`
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+}
+
+// Information about the deployment.
+type DeploymentSummary struct {
+	ConfigurationName      *string `json:"configurationName,omitempty"`
+	ConfigurationProfileID *string `json:"configurationProfileID,omitempty"`
+}
+
+type Environment struct {
+	ApplicationID *string `json:"applicationID,omitempty"`
+	Description   *string `json:"description,omitempty"`
+	ID            *string `json:"id,omitempty"`
+	Name          *string `json:"name,omitempty"`
+}
+
+// A snapshot of the experiment definition captured at the time an experiment
+// run was started. This preserves the configuration that was active during
+// the run.
+type ExperimentDefinitionSnapshot struct {
+	ApplicationID          *string `json:"applicationID,omitempty"`
+	AudienceDescription    *string `json:"audienceDescription,omitempty"`
+	ConfigurationProfileID *string `json:"configurationProfileID,omitempty"`
+	EnvironmentID          *string `json:"environmentID,omitempty"`
+	Hypothesis             *string `json:"hypothesis,omitempty"`
+	ID                     *string `json:"id,omitempty"`
+	LaunchCriteria         *string `json:"launchCriteria,omitempty"`
+	Name                   *string `json:"name,omitempty"`
+}
+
+// Summary information about an experiment definition.
+type ExperimentDefinitionSummary struct {
+	ApplicationID          *string `json:"applicationID,omitempty"`
+	ConfigurationProfileID *string `json:"configurationProfileID,omitempty"`
+	EnvironmentID          *string `json:"environmentID,omitempty"`
+	Hypothesis             *string `json:"hypothesis,omitempty"`
+	ID                     *string `json:"id,omitempty"`
+	Name                   *string `json:"name,omitempty"`
+}
+
+// Describes an event that occurred during an experiment run.
+type ExperimentRunEvent struct {
+	Description *string `json:"description,omitempty"`
+}
+
+// The result of an experiment run, including the executive summary and launch
+// decision rationale.
+type ExperimentRunResult struct {
+	ExecutiveSummary   *string `json:"executiveSummary,omitempty"`
+	ReasonsNotToLaunch *string `json:"reasonsNotToLaunch,omitempty"`
+	ReasonsToLaunch    *string `json:"reasonsToLaunch,omitempty"`
+}
+
+// Summary information about an experiment run.
+type ExperimentRunSummary struct {
+	Description            *string `json:"description,omitempty"`
+	ExperimentDefinitionID *string `json:"experimentDefinitionID,omitempty"`
+}
+
+// Information about an extension. Call GetExtension to get more information
+// about an extension.
+type ExtensionSummary struct {
+	Description *string `json:"description,omitempty"`
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+}
+
+// Information about the configuration.
+type HostedConfigurationVersionSummary struct {
+	ApplicationID          *string `json:"applicationID,omitempty"`
+	ConfigurationProfileID *string `json:"configurationProfileID,omitempty"`
+	Description            *string `json:"description,omitempty"`
+}
+
+// A value such as an Amazon Resource Name (ARN) or an Amazon Simple Notification
+// Service topic entered in an extension when invoked. Parameter values are
+// specified in an extension association. For more information about extensions,
+// see Extending workflows (https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+// in the AppConfig User Guide.
+type Parameter struct {
+	Description *string `json:"description,omitempty"`
+}
+
+// Describes a treatment in an experiment, including its traffic allocation
+// weight and feature flag value.
+type Treatment struct {
+	Description *string `json:"description,omitempty"`
+}
+
+// Input structure for defining a treatment when creating or updating an experiment
+// definition.
+type TreatmentInput struct {
+	Description *string `json:"description,omitempty"`
+}
