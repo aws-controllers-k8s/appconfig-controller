@@ -41,6 +41,8 @@ import (
 	svctypes "github.com/aws-controllers-k8s/appconfig-controller/apis/v1alpha1"
 	svcresource "github.com/aws-controllers-k8s/appconfig-controller/pkg/resource"
 
+	_ "github.com/aws-controllers-k8s/appconfig-controller/pkg/resource/application"
+
 	"github.com/aws-controllers-k8s/appconfig-controller/pkg/version"
 )
 

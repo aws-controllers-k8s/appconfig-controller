@@ -1,0 +1,10 @@
+apiVersion: appconfig.services.k8s.aws/v1alpha1
+kind: Application
+metadata:
+  name: $APPLICATION_NAME
+spec:
+  name: $APPLICATION_NAME
+  description: "ACK e2e test application"
+  tags:
+    environment: "test"
+    managed-by: "ack"

@@ -1,6 +1,5 @@
 ignore:
   resource_names:
-      - Application
       - ConfigurationProfile
       - DeploymentStrategy
       - Environment
@@ -8,3 +7,28 @@ ignore:
       - Extension
       - ExtensionAssociation
       - HostedConfigurationVersion
+resources:
+  Application:
+    fields:
+      Name:
+        is_primary_key: true
+    renames:
+      operations:
+        GetApplication:
+          input_fields:
+            ApplicationId: Id
+        UpdateApplication:
+          input_fields:
+            ApplicationId: Id
+        DeleteApplication:
+          input_fields:
+            ApplicationId: Id
+    hooks:
+      sdk_create_post_set_output:
+        template_path: hooks/application/sdk_create_post_set_output.go.tpl
+      sdk_read_one_post_set_output:
+        template_path: hooks/application/sdk_read_one_post_set_output.go.tpl
+      sdk_update_pre_build_request:
+        template_path: hooks/application/sdk_update_pre_build_request.go.tpl
+      sdk_file_end:
+        template_path: hooks/application/sdk_file_end.go.tpl
