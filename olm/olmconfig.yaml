@@ -1,0 +1,42 @@
+---
+annotations:
+  capabilityLevel: Basic Install
+  shortDescription: AWS AppConfig controller is a service controller for managing AppConfig resources
+    in Kubernetes
+displayName: AWS Controllers for Kubernetes - AWS AppConfig
+description: |-
+  Manage AWS AppConfig resources in AWS from within your Kubernetes cluster.
+
+
+  **About AWS AppConfig**
+
+
+  AWS AppConfig, a capability of AWS Systems Manager, makes it easier to create, manage, and quickly deploy application configurations and feature flags. AWS AppConfig supports controlled deployments to applications of any size and includes built-in validation checks and monitoring. You can use AWS AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices.
+
+
+  **About the AWS Controllers for Kubernetes**
+
+
+  This controller is a component of the [AWS Controller for Kubernetes](https://github.com/aws/aws-controllers-k8s)
+  project.
+
+
+  **Pre-Installation Steps**
+
+
+  Please follow the following link: [Red Hat OpenShift](https://aws-controllers-k8s.github.io/community/docs/user-docs/openshift/)
+samples:
+- kind: Application
+  spec: '{}'
+- kind: Environment
+  spec: '{}'
+- kind: ConfigurationProfile
+  spec: '{}'
+- kind: DeploymentStrategy
+  spec: '{}'
+maintainers:
+- name: "appconfig maintainer team"
+  email: "ack-maintainers@amazon.com"
+links:
+- name: AWS AppConfig
+  url: https://aws.amazon.com/systems-manager/features/appconfig/

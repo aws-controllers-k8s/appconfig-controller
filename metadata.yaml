@@ -1,0 +1,8 @@
+service:
+  full_name: AWS AppConfig
+  short_name: AppConfig
+  link: https://aws.amazon.com/systems-manager/features/appconfig/
+  documentation: https://docs.aws.amazon.com/appconfig/
+api_versions:
+  - api_version: v1alpha1
+    status: available
