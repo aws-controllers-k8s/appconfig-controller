@@ -3,7 +3,7 @@ module github.com/aws-controllers-k8s/appconfig-controller
 go 1.25.0
 
 require (
-	github.com/aws-controllers-k8s/runtime v0.64.0
+	github.com/aws-controllers-k8s/runtime v0.65.0
 	github.com/spf13/pflag v1.0.9
 	k8s.io/apimachinery v0.35.0
 	k8s.io/client-go v0.35.0
